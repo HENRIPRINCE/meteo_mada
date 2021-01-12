@@ -23,7 +23,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Bienvenue - MADA Météo OpenWeatherMap</title>
+		<title>Bienvenue - Météo OpenWeatherMap</title>
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 		
