@@ -1,0 +1,307 @@
+body{overflow-x:hidden;}
+#id_frame_corps_clients{
+	width:100%;height:100%;
+	overflow-x:hidden; /*scrolling="yes"*/
+}
+
+#Id_Globale{width:100%; height:95vh;overflow:hidden;}
+	#Idzone_Titre{width:100%; height:43px; position:fixed; top:0px;left:1px; text-align:center; z-index:3; background:rgb(42,84,255);}
+	#Idzone_Menu
+	{
+		position:fixed;  
+		width:320px; height:85vh; 
+		top:45px;left:1px; 
+		text-align:center; 
+		z-index:3; 
+		background:rgb(87,168,154);
+		border: 1px solid gray; 
+		border-radius: 5px;
+		
+	}
+	#Idzone_Menu_rows{
+		width:317px; height:99.2%; 
+		margin-top:5px;margin-left:1px; 
+		text-align:center; 
+		overflow-y:scroll;
+		/*background:rgb(187,168,114);*/
+		border: 1px solid gray;
+	}
+	
+	#Idzone_Action{width:100%; height:95%; margin-top:20px;margin-left:1px; 
+		   padding:1px 1px 10px 1px; /*overflow-y:scroll;background:rgb(15,59,191);*/}
+	
+	#Idzone_Vodiny{width:100%; height:43px; position:fixed; bottom:0px;left:1px; z-index:3; background:rgb(15,59,91);}
+				
+				
+				#Idzone_Vodiny_gauche{width:20%;height:100%; margin-top: 6px;float:left;text-align:left; }
+				#Idzone_Vodiny_milieu{width:51%;height:100%; margin-top: 5px; float:left; text-align:center;
+									font-size:12px; color:rgb(255,153,0);}
+				#Idzone_Vodiny_droite {width:26%;height:100%; margin-top: 10px; float:left; text-align:right;}
+				
+				#small_apropos{ margin-left:40px;cursor:pointer;color:rgb(255,255,255);font-weight:bold;}
+				#small_apropos:hover{color:rgb(255,255,204);}
+				
+	/*---------------------div bouton ------------------------------------*/
+	#id_Icon_Menu_down{position:fixed; top:5px; left:5px;z-index:100;color:rgb(255,255,255);}
+	#id_Icon_Menu_up{position:fixed; top:5px; left:5px;z-index:100;color:rgb(255,255,255);display:none;}
+	
+	#id_bout_Menu{position:fixed; top:5px; left:35px;z-index:100;color:rgb(255,255,255);cursor:pointer;}
+	#id_bout_Home{position:fixed; top:5px; left:125px;z-index:100;color:rgb(255,255,255);cursor:pointer;}		
+	
+	
+    #id_bout_Login_SignIn{position:fixed; right:5px; top:3px; height:35px; z-index:100;font-size:12px; cursor:pointer;/*display:none;*/}
+	
+	#id_bout_Quit{position:fixed; right:5px; top:3px; height:35px; z-index:100;cursor:pointer;display:none;}
+	
+	#div_operateur{position:fixed; top:5px; right:200px; z-index:100; /*color:rgb(255,255,255);*/}	
+	
+	
+	
+	/*----------------------------------------------------css QUI SOMMES NOUS ----------------------------------*/
+		#box_qui_nous{
+			position:fixed; 
+			width:99%; height: 80vh; 
+			top: 85px; left: 5px; 
+			display:none;
+		    /*background-color: rgb(237,37,37);*/
+			}	
+	
+		
+		#id_fanja{left:10px;}	
+		#id_anthonio{left:320px;}
+		#id_masiarivony{left:630px;}
+		#id_bien{left:950px;}			
+		
+		/*#id_felana{left:10px;}*/
+		
+		#id_sitraka{left:10px;}			
+		#id_ando{left:320px;}	
+		#id_helene{left:630px;}
+		#id_daoudak{left:950px;}
+		
+		
+		
+		.cls_nous, .cls_vous, .cls_cirad{
+					display:none;
+					width:300px; height: 165px; 
+					position:absolute;
+					border: 1px solid gray; border-radius: 5px;
+					-moz-box-shadow: 5px 5px 5px grey;
+					-webkit-box-shadow: 5px 5px 5px grey;
+					box-shadow: 5px 5px 5px grey;
+					transition: transform 1s;
+					font-family: Arial;
+					}
+		.cls_nous{			
+					background:rgb(51,51,255);
+					bottom:330px;
+					-webkit-animation-name: slideIn_nous;
+					-webkit-animation-duration: 2s;
+					animation-name: slideIn_nous;
+					animation-duration: 2s
+					}
+		.cls_vous{			
+					background:rgb(24,179,63);
+					bottom:150px;
+					-webkit-animation-name: slideIn_vous;
+					-webkit-animation-duration: 2s;
+					animation-name: slideIn_vous;
+					animation-duration: 2s
+					}			
+		.cls_cirad{			
+					background:rgb(218,131,90);
+					bottom:150px;
+					-webkit-animation-name: slideIn_vous;
+					-webkit-animation-duration: 2s;
+					animation-name: slideIn_vous;
+					animation-duration: 2s
+					}
+
+		/* ----------------------Add Animation --------------------------------*/
+				@-webkit-keyframes slideIn_nous {
+					from {bottom: 1px; opacity: 0} 
+					to {bottom: 330px; opacity: 1}
+				}
+
+				@keyframes slideIn_nous {
+					from {bottom: 1px; opacity: 0}
+					to {bottom: 330px; opacity: 1}
+				}
+				
+				@-webkit-keyframes slideIn_vous {
+					from {bottom: 1px; opacity: 0} 
+					to {bottom: 150px; opacity: 1}
+				}
+
+				@keyframes slideIn_vous {
+					from {bottom: 1px; opacity: 0}
+					to {bottom: 150px; opacity: 1}
+				}
+			/*
+				.cls_nous:hover, .cls_vous:hover, .cls_cirad:hover{
+					transform: scale(1.2) translate(20px, 20px);
+					z_index:100;
+				  }
+			*/
+			  
+			.cls_nous:hover, .cls_vous:hover, .cls_cirad:hover{ 
+				box-shadow: 0px 0px 150px #000000;
+				z-index: 2;
+				-webkit-transition: all 200ms ease-in;
+				-webkit-transform: scale(1.2) translate(20px, 20px);
+				-ms-transition: all 200ms ease-in;
+				-ms-transform: scale(1.2) translate(20px, 20px);   
+				-moz-transition: all 200ms ease-in;
+				-moz-transform: scale(1.2) translate(20px, 20px);
+				transition: all 200ms ease-in;
+				transform: scale(1.2) translate(20px, 20px);
+			}			
+		
+		/*----------------------------------------------------FIN css QUI SOMMES NOUS ----------------------------------*/	
+		/*----------------------------slid menu  ------------------------------*/
+		#id_tete{
+			position:absolute; 
+			width:99.5%;height:100%; /*140px; */
+			left:1px;right:5px;
+			top:2px; 
+			/*display:none;background :rgb(51,203,255);*/}
+	
+	
+		.slider {width:96%; height:80px; /*140px;*/ 
+				margin-left:25px; margin-top:0px; 
+				-webkit-transition-property:  height; 
+				-webkit-transition-duration: 0.5s; 
+				transition-property:  height;
+				transition-duration: 0.5s;
+				/*background :rgb(151,203,25);*/}
+		ul {margin: 0;padding: 0;}
+		ul li {list-style: none;text-align: center;}
+		ul li img {display: inline-block;vertical-align: middle;width: 100px;height: 12px;/*background: black;*/}
+		.slider-arrow {position: absolute;top: 39px;width: 30px;height: 30px;
+			background: black;
+			color: #fff;text-align: center;text-decoration: none;border-radius: 50%;}
+			
+		.sa-left {left: 1px; top:30px;}
+		.sa-right {right: 1px; top:30px;}
+		
+		.image_card, .image_card_visiteur {
+			width: 70px; height:70px;
+			transition: transform 1s;
+			width:75px; text-align:right;
+		  }
+		  
+	  
+	  .image_card:hover, .image_card_visiteur:hover{ 
+				/*box-shadow: 0px 0px 150px #000000;*/
+				z-index: 2;
+				-webkit-transition: all 200ms ease-in;
+				-webkit-transform: scale(1.5) translate(0px, 12px);
+				-ms-transition: all 200ms ease-in;
+				-ms-transform: scale(1.5) translate(0px, 12px);   
+				-moz-transition: all 200ms ease-in;
+				-moz-transform: scale(1.5) translate(0px, 12px);
+				transition: all 200ms ease-in;
+				transform: scale(1.5) translate(0px, 12px);
+		}
+		.cls-spanTeteMenu{
+			/*
+			display:block; 
+			width:100%; height:30px;
+			background:#006666; 
+			*/
+			font-size:20px; 
+			color:rgb(255,255,255); 
+			font-weight:bold;
+		}
+		.ul-li_menu{
+			display:block; 
+			margin-top:10px; 
+			width:100%;
+			float:left; 
+			cursor:pointer; 
+			height:auto;
+		}
+		
+		.span-li_menu{
+			display:inline-block; 
+			float:left; margin-left:5px; 
+			margin-top: 5px; 
+			width:214px; height:70px;
+			font-size:16px; 
+			text-align:left; 
+			vertical-align:middle; 
+			color:rgb(255,255,255);)
+		}
+		
+		
+		.span-li_menu:hover{
+			color:rgb(255,255,153);
+		}
+		.slider:hover{
+		 	height:100px; 
+		}
+	/*------------------------classe indentification -----------------------*/	
+	
+	.cls_image_visiteur{width:40px; height:40px; border-radius: 50%;}	
+	.clsDiv_infos_visiteurs{width:300px; height: 165px; 
+					position:absolute;right:100px;top:50px;
+					border: 1px solid gray; border-radius: 5px;
+					-moz-box-shadow: 5px 5px 5px grey;
+					-webkit-box-shadow: 5px 5px 5px grey;
+					box-shadow: 5px 5px 5px grey;
+					transition: transform 1s;
+					font-family: Arial; z-index:4;
+					background:rgb(41,82,204);
+					display:none;}
+	#id_icon_persoValide{color:red; font-size:20px; position:absolute; left:12px; top:28px;display:none;}
+	#id_icon_persoNoPhoto{color:#FF6600; font-size:20px; position:absolute; left:12px; top:28px;display:none;}
+	
+	/*-------------------------PAR SESSION PHP-------------------*/	
+		#box_nous_H{width:300px; height:115px; float:left;/*background : rgb(127,237,237);*/}
+		#box_nous_M{width:300px; height:45px; float:left; margin-top:5px; /*background : rgb(27,237,27);*/}
+		
+		
+		#box_nous_HL{width:90px; height:100%; float:left;/*background : rgb(7,237,237);*/}
+		#box_nous_HR{width:210px; height:100%; float:left;/*background : rgb(127,237,7);*/}
+		
+		#box_nous_M_1{width:300px; height:50%; float:left;margin-left: 2px; /*background : rgb(27,237,27);*/}
+		#box_nous_M_2{width:300px; height:50%; float:left;margin-left: 2px; /*background : rgb(27,237,27);*/}
+		
+		.cls_sary_nous{width:80px; height:90px; border-radius: 50px;}
+		.cls_infos_nousVousetes{color:#F3F3F3;font-size:9px;font-style:normal; font-family:Georgia, serif;}
+		.cls_infos_nousNom{color:#F3F3F3;font-size:13px;font-style:normal; font-family:Georgia, serif;}
+		.cls_infos_nousMle{color:#F3F3F3;font-size:16px;font-style:normal; font-family:Georgia, serif;}
+		.cls_infos_nousBoulot{color:#F3F3F3;font-size:11px;font-style:normal; font-family:Georgia, serif;}
+		.cls_infos_nousNonConfirme{color:#FFCC00;font-size:13px;font-style:normal; font-family:Georgia, serif;}	
+		
+		/*-----------------------file upload piece jointe --------------------*/
+			.fileUpload {
+				position: relative;
+				overflow: hidden;
+				margin: -1px;
+			}
+			.fileUpload input.upload {
+				position: absolute;
+				top: 0;
+				right: 0;
+				margin: 0;
+				padding: 0;
+				font-size: 12px;
+				cursor: pointer;
+				opacity: 0;
+				filter: alpha(opacity=0);
+			}
+	#Id_spin_photo{position:absolute; top: 25px; left: 20px;  width:50px; height:50px;z-index:100; display:none;}		
+	#id_bout_photoProfile{position:absolute; top:2x; left:5px;  
+					width: 33px; height:32px; font-size:15px; cursor:pointer;
+					color:rgb(255,255,255);}
+					
+	#id_bout_photoValide{position:absolute; top:2x; left:45px; 
+					width: 33px; height:32px; font-size:15px; cursor:pointer;
+					color:rgb(255,5,5);display:none;}
+					
+	#id_bout_profilEdit	{position:absolute; top:2x; left:80px; 
+					width: 33px; height:32px; font-size:15px; cursor:pointer;
+					color:rgb(255,255,255);/*display:none;*/}	
+					
+	#id_bout_photoProfile:hover, #id_bout_photoValide:hover, #id_bout_profilEdit:hover{color:rgb(46,242,101);}	

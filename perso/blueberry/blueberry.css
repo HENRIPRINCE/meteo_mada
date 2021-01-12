@@ -1,0 +1,94 @@
+
+.blueberry { margin: 0 auto; }
+.blueberry .slides {
+	display: block; height:auto; 
+	position: relative;
+	overflow: hidden;
+	/*
+	margin-left: -30px;
+	margin-top: -20px;
+	width: 50%;height:550px;
+	*/
+	margin: 0 auto; 
+	width: 70%;height:550px;
+
+}
+
+.blueberry .slides li {
+	/*position: absolute;*/
+	top: -30px;
+	left: -10px;
+	overflow: hidden;
+	
+	
+}
+
+
+
+
+
+.blueberry .slides li img {
+	display: block;
+	width: 100%;height:550px;
+	border:0;
+	
+	
+	/*max-width: none;*/
+}
+.blueberry .slides li.active { display: block; position: relative; }
+.blueberry .crop li img { width: auto; }
+
+.blueberry .pager {
+	height: 40px;
+	text-align: center;
+	margin-top:-200px;
+	/*background:rgb(20,180,110);*/
+	
+}
+.blueberry .pager li { display: inline-block; }
+.blueberry .pager li a,
+.blueberry .pager li a span {
+	display: block;
+	height: 4px;
+	width: 4px;
+}
+.blueberry .pager li a {
+	padding: 18px 8px;
+  -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+	border-radius: 6px;
+}
+.blueberry .pager li a span {
+	overflow: hidden;
+	background: #c0c0c0;
+	text-indent: -9999px;
+-webkit-border-radius: 2px;
+   -moz-border-radius: 2px;
+	border-radius: 2px;
+}
+.blueberry .pager li.active a span { background: #404040; }
+
+/*-------------------pour image hover bluberry------------------------------------*/
+.flex-caption{ position: absolute; left:11px; bottom:1px;width:500px; height:120px;  
+		background:rgba(255,153,90, 0.5);
+		animation-name: mymove;
+		animation-duration: 2s;
+		animation-direction: reverse; 
+		animation-iteration-count: 1;
+		z-index: 1;}
+.caption_title_line{padding-left: 10px;}
+.flex-caption h2 {text-align:center; font-weight: normal;margin: 0;line-height: 25px;display:line-block;background:rgb(51,102,250);}
+.flex-caption h3 {text-align:center;font-size:30px;} 
+.flex-caption .devider{text-align:center;}
+.flex-caption p{text-align:center;font-size:20px;}
+	/* Add Animation */
+	@-webkit-keyframes mymove {
+		from {right: 10px;}
+		to {left: 500px;}
+	}
+
+	/* Standard syntax */
+	@keyframes mymove {
+		from {right: 10px;}
+		to {left: 500px;}
+	}
