@@ -27,14 +27,14 @@
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 
-		<link rel="stylesheet" href="perso/css/jquery-ui_1.11.4.css" type="text/css" />
-		<script src="perso/js/jquery-2.1.3.min.js"></script>
-		<script src="perso/js/jquery-ui_1.11.4.js"></script>
+		<link href="tools/jquery-ui_1.11.4.css" rel="stylesheet" type="text/css" />
+		<script src="tools/jquery-2.1.3.min.js"></script>
+		<script src="tools/jquery-ui_1.11.4.js"></script>
 		<script src="btsp/js/tether_min.js"></script>
 		
 		<link rel="stylesheet" href="btsp/css/bootstrap.css" />
 		<script src="btsp/js/bootstrap.js"></script>
-		<script src="perso/js/spin.js"></script>
+		<script src="tools/spin.js"></script>
 
 		<link rel="stylesheet" href="jquery.msgbox.7.1/msgBoxLight.css" />
 		<script src="jquery.msgbox.7.1/jquerymsgbox2.js"></script>
@@ -266,7 +266,7 @@
 		
 		
 	</script>
-	<script src="perso/js/js_infosback.js"></script>
+	<script src="tools/js_infosback.js"></script>
 	<script src="js_owm_ge.js"></script>
 	<script src="js_own_load.js"></script>
 	</body>

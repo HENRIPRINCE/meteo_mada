@@ -1,4 +1,0 @@
-<?php
-$tsymisy ="";
-echo $tsymisy;
-?>
