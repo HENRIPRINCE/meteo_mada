@@ -23,20 +23,19 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Bienvenue - Météo OpenWeatherMap</title>
+		<title>Bienvenue - MADA Météo OpenWeatherMap</title>
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-		
+
 		<link rel="stylesheet" href="perso/css/jquery-ui_1.11.4.css" type="text/css" />
-		<script src="perso/js/jquery-ui_1.11.4.js"></script>
 		<script src="perso/js/jquery-2.1.3.min.js"></script>
-		
-		<script src="perso/js/spin.js"></script>
+		<script src="perso/js/jquery-ui_1.11.4.js"></script>
 		<script src="btsp/js/tether_min.js"></script>
 		
 		<link rel="stylesheet" href="btsp/css/bootstrap.css" />
 		<script src="btsp/js/bootstrap.js"></script>
-		
+		<script src="perso/js/spin.js"></script>
+
 		<link rel="stylesheet" href="jquery.msgbox.7.1/msgBoxLight.css" />
 		<script src="jquery.msgbox.7.1/jquerymsgbox2.js"></script>
 		
@@ -172,7 +171,7 @@
 			});
 			
 			$("#id-bout_ReloadJour").click(function(){
-				msgBoxImagePath = "../jquery.msgbox.7.1/images/";
+				msgBoxImagePath = "jquery.msgbox.7.1/images/";
 				$.msgBox({
 				title: "INFORMATION",
 				content: 'Recharger les informations ? <br> OUI pour Supprimer || NON pour Laisser',
@@ -187,7 +186,7 @@
 			});
 			
 			$("#id-bout_ReloadPrevision").click(function(){
-				msgBoxImagePath = "../jquery.msgbox.7.1/images/";
+				msgBoxImagePath = "jquery.msgbox.7.1/images/";
 				$.msgBox({
 				title: "INFORMATION",
 				content: 'Recharger les informations pour la prévision ? <br> OUI pour Supprimer || NON pour Laisser',

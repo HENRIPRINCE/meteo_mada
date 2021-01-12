@@ -1591,7 +1591,7 @@ goog.retrieveAndExec_ = function(src, isModule, needsTranspile) {
   if (!COMPILED) {
     // The full but non-canonicalized URL for later use.
     var originalPath = src;
-    // Canonicalize the path, removing any /./ or /../ since Chrome's debugging
+    // Canonicalize the path, removing any /./ or / since Chrome's debugging
     // console doesn't auto-canonicalize XHR loads as it does <script> srcs.
     src = goog.normalizePath_(src);
 

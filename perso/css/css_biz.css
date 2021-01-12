@@ -204,9 +204,9 @@ z-index:10;
 	box-shadow: 1px 1px 11px #330033;
 	cursor:pointer;
   }
- #id-div_trie_score{width:120px;	margin-left:44px; margin-top:5px;background: rgb(27,133,133) url("../../tools/15xvbd5.png") no-repeat scroll 95px center;}
- #id-div_trie_prix{width:120px;	margin-left:44px; margin-top:40px;background: rgb(27,133,133) url("../../tools/15xvbd5.png") no-repeat scroll 95px center;}
- #id-div_trie_promotion{width:90px;	margin-left:74px; margin-top:75px;background: rgb(27,133,133) url("../../tools/15xvbd5.png") no-repeat scroll 65px center;}
+ #id-div_trie_score{width:120px;	margin-left:44px; margin-top:5px;background: rgb(27,133,133) url("tools/15xvbd5.png") no-repeat scroll 95px center;}
+ #id-div_trie_prix{width:120px;	margin-left:44px; margin-top:40px;background: rgb(27,133,133) url("tools/15xvbd5.png") no-repeat scroll 95px center;}
+ #id-div_trie_promotion{width:90px;	margin-left:74px; margin-top:75px;background: rgb(27,133,133) url("tools/15xvbd5.png") no-repeat scroll 65px center;}
  
 .cls-div_trie select {
    border: 0;

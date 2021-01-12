@@ -33,7 +33,7 @@ function initialize()
 		  myInfosAdmin.style.left = '120px';
 		  myInfosAdmin.innerHTML = 'Développée par : <a href"mailto:henriprincetoky@gmail.com">Bienvenue</a>';
 		  myInfosAdmin.addEventListener('click', function() {
-				msgBoxImagePath = "../jquery.msgbox.7.1/images/";
+				msgBoxImagePath = "jquery.msgbox.7.1/images/";
 				$.msgBox({
 					title: "Administrateur",
 					content: hafatra,

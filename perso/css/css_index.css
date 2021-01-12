@@ -1,7 +1,7 @@
 	/*body{ background: linear-gradient(to right, rgb(4,72,133), rgb(255,255,255));}*/
 	
 	body {	
-		background-image: url('../outils/tany_vao.png');
+		background-image: url('outils/tany_vao.png');
 		background-repeat: no-repeat;
 		background-position: 0px 0px;
 		background-size: 100% 100vh; 

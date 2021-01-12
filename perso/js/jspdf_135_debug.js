@@ -15403,9 +15403,9 @@ Renderer.prototype.renderBackgroundRepeating = function(container, bounds, image
 module.exports = Renderer;
 
 },{"./log":13}],20:[function(_dereq_,module,exports){
-var Renderer = _dereq_('../renderer');
-var LinearGradientContainer = _dereq_('../lineargradientcontainer');
-var log = _dereq_('../log');
+var Renderer = _dereq_('renderer');
+var LinearGradientContainer = _dereq_('lineargradientcontainer');
+var log = _dereq_('log');
 
 function CanvasRenderer(width, height) {
     Renderer.apply(this, arguments);
@@ -15585,7 +15585,7 @@ function hasEntries(array) {
 
 module.exports = CanvasRenderer;
 
-},{"../lineargradientcontainer":12,"../log":13,"../renderer":19}],21:[function(_dereq_,module,exports){
+},{"lineargradientcontainer":12,"log":13,"renderer":19}],21:[function(_dereq_,module,exports){
 var NodeContainer = _dereq_('./nodecontainer');
 
 function StackingContext(hasOwnStacking, opacity, element, parent) {
