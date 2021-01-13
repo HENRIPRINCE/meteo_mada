@@ -1,0 +1,64 @@
+/*------
+css for the personalized box message
+version 1.0
+for info:
+henriprincetoky@gmail.com
+ ------*/
+.myModal {
+	position: fixed; /* Stay in place */
+	z-index: 95; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: none; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+	display:none;
+}
+#id-info_box{
+	position:relative;
+	width:400px; height: 250px; 
+	margin:100px auto;
+	border: 1px solid gray; border-radius: 5px;
+	background:rgb(255,255,255);
+	-moz-box-shadow: 0px 0px 150px #FFFFFF;
+	-webkit-box-shadow: 0px 0px 150px #FFFFFF;
+	box-shadow: 0px 0px 150px #FFFFFF;
+}
+#id-titre_span{
+	position:absolute;
+	top:0px; left:0px;
+	display:block;
+	background:#CC6600;
+	width:100%;height:40px;
+	text-align:center;
+	padding-top:5px;
+	font-size:16px;
+	color:#FFFFFF;
+	font-weight:bold;
+}
+#id-info_div{
+	position:absolute;
+	display:block;
+	top:55px; left:100px;
+	width:299px;height:155px;
+	text-align:center;
+	font-size:14px;
+	color:#333333;
+}
+.cls-icon_left{
+	position:absolute;
+	top:80px; left:5px;
+	width:100px; height:100px;
+}
+#id-bout_non{
+	position:absolute;
+	bottom:5px; right:125px;
+	width:100px; height:40px;
+}
+#id-bout_ok{
+	position:absolute;
+	bottom:5px; right:5px;
+	width:100px; height:40px;
+}

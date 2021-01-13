@@ -36,7 +36,7 @@ function Get_IconRegion_Jour()
 			var nom_region = infosGeo_reg[1];
 			var myCoor_Y = infosGeo_reg[5];
 			var myCoor_X = infosGeo_reg[4];
-			var infos_animation = "Traitement de données pour: "  + nom_region + ' (' + rang + ' /' + nombre_region + ')';
+			var infos_animation = "Traitement de données pour: " + nom_region + ' (' + rang + ' /' + nombre_region + ')';
 			document.getElementById('id-spin_text').innerHTML = infos_animation;
 			func_traiter_owm("DUJOUR", nom_region, myCoor_Y, myCoor_X);
 		}
@@ -70,7 +70,7 @@ function Get_IconRegion_Prevision()
 			var nom_region = infosGeo_reg[1];
 			var myCoor_Y = infosGeo_reg[5];
 			var myCoor_X = infosGeo_reg[4];
-			var infos_animation = "Prévision 5 jours pour: "  + nom_region + ' (' + rang + ' /' + nombre_region + ')';
+			var infos_animation = "Prévision 5 jours pour: " + nom_region + ' (' + rang + ' /' + nombre_region + ')';
 			document.getElementById('id-spin_text').innerHTML = infos_animation;
 			func_traiter_owm("PREVISION", nom_region, myCoor_Y, myCoor_X);
 		}
@@ -84,10 +84,10 @@ function func_traiter_owm(inona, nom_region, myCoor_Y, myCoor_X)
 {
 	var mon_lien_W ="";
 	if(inona =="DUJOUR"){
-		var mon_lien_W = "http://api.openweathermap.org/data/2.5/weather?lat=" + myCoor_Y + "&lon=" + myCoor_X + "&APPID=181cea89bccd876e12a66892e24ecb69&mode=xml&units=metric&lang=fr";
+		var mon_lien_W = "http://api.openweathermap.org/data/2.5/weather?lat=" + myCoor_Y + "&lon=" + myCoor_X + "&APPID="+ PID_OWM + "&mode=xml&units=metric&lang=fr";
 	}
 	if(inona =="PREVISION"){
-		mon_lien_W = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + myCoor_Y + "&lon=" + myCoor_X + "&APPID=181cea89bccd876e12a66892e24ecb69&mode=xml&units=metric&lang=fr";
+		mon_lien_W = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + myCoor_Y + "&lon=" + myCoor_X + "&APPID="+ PID_OWM + "&mode=xml&units=metric&lang=fr";
 	}
 	//-----------------------------------SENDING AJAX------------------------------------------------------------------//
 	$.ajax({
@@ -112,9 +112,9 @@ function func_traiter_owm(inona, nom_region, myCoor_Y, myCoor_X)
 				var xlist_length = response['list'].length;
 				
 				for (var i =0; i < xlist_length; i++){
-					var List_date =  timestamp_readable(xlist[i]['dt'], "ANDRO");
-					var List_sunrise =  timestamp_readable(xlist[i]['sunrise'], "ORA");
-					var List_sunset =  timestamp_readable(xlist[i]['sunset'], "ORA");
+					var List_date = timestamp_readable(xlist[i]['dt'], "ANDRO");
+					var List_sunrise = timestamp_readable(xlist[i]['sunrise'], "ORA");
+					var List_sunset = timestamp_readable(xlist[i]['sunset'], "ORA");
 					
 					var List_humidity = xlist[i]['humidity'];
 					var List_pressure = xlist[i]['pressure'];
@@ -164,8 +164,8 @@ function func_traiter_owm(inona, nom_region, myCoor_Y, myCoor_X)
 					infos_Date_region = infos_Date_region + infos_Date + "!";
 				}
 				//var infos_region_all_date = infos_region + "!" + infos_Date_region; 
-				var infos_region_all_date =  infos_Date_region; 
-				infos_owm_22regions_prevision = infos_owm_22regions_prevision  + infos_region_all_date + ";" ;
+				var infos_region_all_date = infos_Date_region; 
+				infos_owm_22regions_prevision = infos_owm_22regions_prevision + infos_region_all_date + ";" ;
 			}
 			
 			if(inona =="DUJOUR")
@@ -199,7 +199,7 @@ function func_traiter_owm(inona, nom_region, myCoor_Y, myCoor_X)
 				temp_max[rang] = parseFloat(val_temp_max);
 				temp_avg[rang] = parseFloat(val_temp_value);
 				//stocker les variables
-				text_show =  nom_region 
+				text_show = nom_region 
 								+ '|' + myCoor_Y 
 								+ '|' + myCoor_X 
 								+ '|' + icon_ici 
@@ -209,7 +209,7 @@ function func_traiter_owm(inona, nom_region, myCoor_Y, myCoor_X)
 								+ '|' + clouds_all 
 								+ '|' + weather_description_ici 
 								+ '|' + weather_main_ici ;
-				infos_owm_22regions = infos_owm_22regions  + text_show + ';';
+				infos_owm_22regions = infos_owm_22regions + text_show + ';';
 			}
 		}
 	});
@@ -221,7 +221,7 @@ function func_traiter_owm(inona, nom_region, myCoor_Y, myCoor_X)
 
 function func_owm_jour_onGoogle()
 {
-	var splitData =  infos_owm_22regions.split(";")
+	var splitData = infos_owm_22regions.split(";")
 	var color_label = "white";
 	var split_MinMax = infos_MinMax_jour.split('||');
 	var infos_Min = split_MinMax[0].split(',');
@@ -260,23 +260,23 @@ function func_owm_jour_onGoogle()
 				var image = "http://openweathermap.org/img/w/" + icon_ici + ".png";
 				var Valeur_contentString = '<div style="width:350px;height:100px;background:rgb(51,153,153);color:rgb(255,255,255);">'
 												+'<b style="font-size:16px;">Météo du jour - ' + nom_region + '</b>' + '<br>' 
-												+ '<b>témperature :  </b>' + ' '
-												+ '&nbsp;&nbsp : ' + val_temp_value + '°C'  + '<br>'
-												+ '<b>Temps :  </b>' + ' '
-												+ '&nbsp;&nbsp;' + weather_main_ici + '  ' + clouds_all + '%  ' +  weather_description_ici + '<br>'
-												+ '<b>Vent :  </b>' + ' '
+												+ '<b>témperature : </b>' + ' '
+												+ '&nbsp;&nbsp : ' + val_temp_value + '°C' + '<br>'
+												+ '<b>Temps : </b>' + ' '
+												+ '&nbsp;&nbsp;' + weather_main_ici + ' ' + clouds_all + '% ' + weather_description_ici + '<br>'
+												+ '<b>Vent : </b>' + ' '
 												+ '&nbsp;&nbsp;Direction : "' + wind_deg + '" '
-												+ '&nbsp;&nbsp;Vitesse : ' + wind_speed + ' "' +  clouds_all  + '"' + '<br>'
+												+ '&nbsp;&nbsp;Vitesse : ' + wind_speed + ' "' + clouds_all + '"' + '<br>'
 												+ '<small>source : <a style="text-decoration: none; font-size:13px; color:#FF9966; cursor:pointer;" href="http://openweathermap.org" target="_blank">OpenWeatherMap</a></small>'
 											+ '</div>';
 			
 			
 				if (val_temp_value == Temp_Minimum){
-					color_label =  'blue';}
+					color_label = 'blue';}
 				else if (val_temp_value == Temp_Maximum){
-					color_label =  'red' ;}
+					color_label = 'red' ;}
 				else{
-					color_label =  'white';
+					color_label = 'white';
 				}
 
 				//appel function
@@ -317,7 +317,7 @@ function func_owm_jour_onGoogle()
 //-------------------------------------------------------------traiter on google prevision --------------------------------------------------//
 function func_prepare_all_data_prevision()
 {
-	var splitData =  infos_owm_22regions_prevision.split(";");
+	var splitData = infos_owm_22regions_prevision.split(";");
 	//----infos sun--------------------------
 	var all_div_forecast = ""; 
 	var all_div_forecast_sun = "";
@@ -338,7 +338,7 @@ function func_prepare_all_data_prevision()
 			{
 				//stocker pour charger
 				var infos_sun = infos_Date + '|' +infos_lever + '|' + infos_coucher;
-				sys_sun_prevision  = sys_sun_prevision +  infos_sun + ";" ;
+				sys_sun_prevision = sys_sun_prevision + infos_sun + ";" ;
 				if (i == 0){
 					radioChecked ="checked";
 				}
@@ -346,14 +346,14 @@ function func_prepare_all_data_prevision()
 					radioChecked ="";
 				}
 				//--cr?er div forecast
-				var radio_forecast = '<input type="radio" class="cls-radio_forecast" ' + radioChecked  + ' id="id-radio_prevision_' + i + '" name="mode_prevision_date" onclick ="Store_data_toShow_onGoogle(' +  "'" +  i + "', '" + infos_Date + "', '" + infos_lever + "', '" + infos_coucher + "'" + ');" />&nbsp;';
+				var radio_forecast = '<input type="radio" class="cls-radio_forecast" ' + radioChecked + ' id="id-radio_prevision_' + i + '" name="mode_prevision_date" onclick ="Store_data_toShow_onGoogle(' + "'" + i + "', '" + infos_Date + "', '" + infos_lever + "', '" + infos_coucher + "'" + ');" />&nbsp;';
 				var div_forecast = '<div class="cls-div_forecast" id="id-date_'+ i + '">' + infos_Date + '</div>';
 				var div_forecast_sun = '<div class="cls-div_forecast_sun" id="id-soleil_' + i + '">'
 						+ '<img class="cls-img_meteo" src="outils/soleil.png"/>&nbsp;&nbsp;'
 						+ '<img class="cls-img_meteo_soleil" src="outils/index_miakatra.png"/>Lever à ' + infos_lever + '&nbsp;&nbsp;'
 						+ '<img class="cls-img_meteo_soleil" src="outils/index_midina.png"/>Coucher à ' + infos_coucher + '</div>';
 				
-				all_div_forecast = '<div class="cls-all_div_forecast">' + radio_forecast + div_forecast  +  div_forecast_sun + '</div>';
+				all_div_forecast = '<div class="cls-all_div_forecast">' + radio_forecast + div_forecast + div_forecast_sun + '</div>';
 				all_div_forecast_sun = all_div_forecast_sun + all_div_forecast;
 			}
 		}
@@ -369,7 +369,7 @@ function show_prevision_today(){
 	document.getElementById("id-radio_prevision_0").checked = true;
 	//--preparer MinMax
 	Prepare_owm_MinMax("PREVISION", temp_min, temp_max, "jour", sys_sunrise_jour, sys_sunset_jour);
-	Store_data_toShow_onGoogle(0, sys_sundate_jour,  sys_sunrise_jour, sys_sunset_jour);
+	Store_data_toShow_onGoogle(0, sys_sundate_jour, sys_sunrise_jour, sys_sunset_jour);
 	//--show map
 	func_voir_prevision_onGoogle();
 }
@@ -383,7 +383,7 @@ function Store_data_toShow_onGoogle(cle, date_cle, lever, coucher)
 	sys_sunrise_prevision = lever;
 	sys_sunset_prevision = coucher;
 		
-	var splitData =  infos_owm_22regions_prevision.split(";");
+	var splitData = infos_owm_22regions_prevision.split(";");
 	for (var i = 0; i < splitData.length; i++)
 	{
 		var infosRegions = splitData[i];
@@ -464,14 +464,14 @@ function Store_data_toShow_onGoogle(cle, date_cle, lever, coucher)
 										+ '|' + List_feels_eve
 										+ '|' + List_feels_night;
 						//--store in data						
-						dataRegions_prevision_click = dataRegions_prevision_click +  reg_infos_date + ";" ;
+						dataRegions_prevision_click = dataRegions_prevision_click + reg_infos_date + ";" ;
 						//stocker la valeur min max pour avoir la zone plus hot/cold
 						temp_min_prevision[i] = parseFloat(List_temp_min);
 						temp_max_prevision[i] = parseFloat(List_temp_max);
 						temp_morn_prevision[i] = parseFloat(List_temp_morn);
 						temp_day_prevision[i] = parseFloat(List_temp_day);
 						temp_eve_prevision[i] = parseFloat(List_temp_eve);
-						temp_night_prevision[i] =  parseFloat(List_temp_night);
+						temp_night_prevision[i] = parseFloat(List_temp_night);
 					}
 				}
 			}
@@ -623,28 +623,28 @@ function func_voir_prevision_onGoogle()
 				feels_ici = List_feels_night;
 			}
 			
-			//console.log("lah: " + i +  "/" + splitPrevisions.length +  " ==> " + nom_region +   " min: " +  Temp_Minimum + " max: " + Temp_Maximum + " temp: " + temp_ici);	
+			//console.log("lah: " + i + "/" + splitPrevisions.length + " ==> " + nom_region +  " min: " + Temp_Minimum + " max: " + Temp_Maximum + " temp: " + temp_ici);	
 			
 			var image = "http://openweathermap.org/img/w/" + icon_ici + ".png";
 			var Valeur_contentString = '<div style="width:350px;height:100px;background:rgb(51,153,153);color:rgb(255,255,255);">'
 												+'<b style="font-size:16px;">Météo du jour - ' + nom_region + '</b>' + '<br>' 
-												+ '<b>témperature :  </b>' + ' '
-												+ '&nbsp;&nbsp : ' + temp_ici + '°C, Feels like: ' +  feels_ici + '°C' + '<br>'
-												+ '<b>Temps :  </b>' + ' '
-												+ '&nbsp;&nbsp;' + main_ici + '  ' +  description_ici + '<br>'
-												+ '<b>Vent :  </b>' + ' '
+												+ '<b>témperature : </b>' + ' '
+												+ '&nbsp;&nbsp : ' + temp_ici + '°C, Feels like: ' + feels_ici + '°C' + '<br>'
+												+ '<b>Temps : </b>' + ' '
+												+ '&nbsp;&nbsp;' + main_ici + ' ' + description_ici + '<br>'
+												+ '<b>Vent : </b>' + ' '
 												+ '&nbsp;&nbsp;Humidité : "' + List_humidity + '" '
-												+ '&nbsp;&nbsp;Vitesse : ' + List_speed +  '<br>'
+												+ '&nbsp;&nbsp;Vitesse : ' + List_speed + '<br>'
 												+ '<small>source : <a style="text-decoration: none; font-size:13px; color:#FF9966; cursor:pointer;" href="http://openweathermap.org" target="_blank">OpenWeatherMap</a></small>'
 											+ '</div>';
 		
 		
 			if (temp_ici == Temp_Minimum){
-				color_label =  'blue';}
+				color_label = 'blue';}
 			else if (temp_ici == Temp_Maximum){
-				color_label =  'red' ;}
+				color_label = 'red' ;}
 			else{
-				color_label =  'white';
+				color_label = 'white';
 			}
 			//appel function
 			var icon_duJour = {
@@ -735,8 +735,8 @@ function Prepare_owm_MinMax(inona, Table_min, Table_max, quand, sunLever, sunCou
 	infos_soleil = '<img class="cls-img_meteo" src="outils/soleil.png"/>&nbsp;&nbsp;'
 					+ '<img class="cls-img_meteo_soleil" src="outils/index_miakatra.png"/>Lever à ' + sunLever + '&nbsp;&nbsp;'
 					+ '<img class="cls-img_meteo_soleil" src="outils/index_midina.png"/>Coucher à ' + sunCoucher;
-	infos_temps_min = '<img class="cls-img_meteo" src="outils/temp_cold.png"/>&nbsp;' + temp_min_Cold  + '°C, ' +  Region_Cold;
-	infos_temps_max = '<img class="cls-img_meteo" src="outils/temp_hot.png"/>&nbsp;' + temp_max_Hot  + '°C, ' +  Region_Hot;
+	infos_temps_min = '<img class="cls-img_meteo" src="outils/temp_cold.png"/>&nbsp;' + temp_min_Cold + '°C, ' + Region_Cold;
+	infos_temps_max = '<img class="cls-img_meteo" src="outils/temp_hot.png"/>&nbsp;' + temp_max_Hot + '°C, ' + Region_Hot;
 	$("#id-date_du").html(infos_jour);
 	$("#id-soleil").html(infos_soleil);
 	$("#id-temps_min").html(infos_temps_min);
@@ -753,8 +753,8 @@ function ampitaoHafatra(marker, DataLayer, ValcontentString)
 	});
 
 	marker.addListener('click', function() {
-		infowindow.open(marker.get('id_googleMap'), marker);
+		infowindow.open(marker.get('id-googleMap'), marker);
 	});
-	//--stocker  infos
+	//--stocker infos
 	DataLayer.push(infowindow);
 }

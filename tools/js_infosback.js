@@ -1,5 +1,5 @@
 var opts = {
-		  lines: 13 // The number of lines to draw
+		 lines: 13 // The number of lines to draw
 		, length: 28 // The length of each line
 		, width: 14 // The line thickness
 		, radius: 38 // The radius of the inner circle
@@ -31,8 +31,8 @@ function infos_back()
 	//var anio_zany = addZero(date_anio.getDate()) + '/' + addZero((date_anio.getMonth()+1)) + '/' + date_anio.getFullYear();
 	var rang_mois = date_anio.getMonth();
 	var volana = monthNames[rang_mois];
-	var hafatra = ' (Developpé par <a href="https://twitter.com/rahoilijaona" target="_blank" style="color:rgb(255,255,255);">RAHOILIJAONA Bienvenue</a>) ||  Copyright : BienvProg ' + volana + '  ' + date_anio.getFullYear();
-	//document.getElementById("small_rs").innerHTML =  hafatra;
+	var hafatra = ' (Developpé par <a href="https://github.com/HENRIPRINCE/" target="_blank" style="color:rgb(255,255,255);">RAHOILIJAONA Bienvenue</a>) || Copyright : BienvProg ' + volana + ' ' + date_anio.getFullYear();
+	//document.getElementById("small_rs").innerHTML = hafatra;
 	$("#id-zone_Vodiny_droite").html(hafatra);
 }
 //-------------------------------------TRAITEMETN ENSEMBELE --------------------------------//
@@ -69,10 +69,10 @@ function timestamp_readable(var_timestamp, backInona)
 	var mois_ici = Xdate.getMonth() + 1;
 	var andro_ici = parseInt(Xdate.getDate());
 	if (backInona =="ORA"){
-		miverina =  Xdate.getHours() + ":" + Xdate.getMinutes() + ":" + Xdate.getSeconds();
+		miverina = Xdate.getHours() + ":" + Xdate.getMinutes() + ":" + Xdate.getSeconds();
 	}
 	if (backInona =="ANDRO"){
-		miverina =  Xdate.getFullYear() + "-" + addZero(mois_ici)  + "-" + addZero(andro_ici);
+		miverina = Xdate.getFullYear() + "-" + addZero(mois_ici) + "-" + addZero(andro_ici);
 	}
 	
 	//return datevalues;

@@ -6,7 +6,7 @@ body {
 	
 	}
 
-#id_googleMap {
+#id-googleMap {
 	width:100%; 
 	height:90%;
 	margin-top:20px; margin-left:0px;
@@ -14,7 +14,7 @@ body {
 	}
 #id-spin_carte{ position:absolute; top: 40%; left: 50%; width:30px; height:30px; z-index:100; display:none;}	
 #id-spin_text{
-	position:absolute; top: 50%; left: 40%; width:500px; height:50px;  
+	position:absolute; top: 50%; left: 40%; width:500px; height:50px; 
 	text-align:center;
 	font-size:16px; 
 	color: rgb(55,255,55); 

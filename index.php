@@ -2,20 +2,19 @@
 		//---------------------TROUVER lesinfos 
 		/*id;region;mdg_loc_code;class_adm;centr_x;centr_y*/
 		$crocherPT ="";
-		//$path_locmada="data_region_xy_andrana.txt";
 		$path_locmada="data/data_region_xy.txt";
 		$ReadTxt = fopen($path_locmada, "r"); 
 		while (!feof($ReadTxt))
 		{
 			$lire_Ligne = fgets($ReadTxt);
 			$words = explode(";", $lire_Ligne);
-			$coorPT =  $words[0] . ',' . $words[1]  . ',' . $words[2] . ',' . $words[3] . ',' . $words[4]  . ',' . $words[5];
+			$coorPT = $words[0] . ',' . $words[1] . ',' . $words[2] . ',' . $words[3] . ',' . $words[4] . ',' . $words[5];
 			$crocherPT = $crocherPT . $coorPT . ";";
 		}
 		fclose($ReadTxt); 
 		//---------------traiter données
 		$crocherPT = trim($crocherPT);
-		$crocherPT = substr($crocherPT, 0, -1);  // enleve ", " =2cara
+		$crocherPT = substr($crocherPT, 0, -1); // enleve ", " =2cara
 		//charger les champs
 		echo '<textarea style="display:none;" rows="20" cols="84" id="IdLesInfosPT">'.$crocherPT.'</textarea>';
 		
@@ -26,18 +25,14 @@
 		<title>Bienvenue - MADA Météo OpenWeatherMap</title>
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-
-		<link href="tools/jquery-ui_1.11.4.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="tools/jquery-ui_1.11.4.css" type="text/css" />
+		<link rel="stylesheet" href="btsp/css/bootstrap.css" />
+		 
 		<script src="tools/jquery-2.1.3.min.js"></script>
 		<script src="tools/jquery-ui_1.11.4.js"></script>
-		<script src="btsp/js/tether_min.js"></script>
-		
-		<link rel="stylesheet" href="btsp/css/bootstrap.css" />
-		<script src="btsp/js/bootstrap.js"></script>
 		<script src="tools/spin.js"></script>
-
-		<link rel="stylesheet" href="jquery.msgbox.7.1/msgBoxLight.css" />
-		<script src="jquery.msgbox.7.1/jquerymsgbox2.js"></script>
+		<script src="btsp/js/tether_min.js"></script>
+		<script src="btsp/js/bootstrap.js"></script>
 		
 		<link rel="stylesheet" href="css_meteo_2020.css" />
 		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8qQOBguU9m1Jh8uKcnrDqsQUlVVm9SiE&callback=initialize"></script>
@@ -53,6 +48,10 @@
 			white-space: nowrap;
 		}
 		</style>
+		<!--============================== msgbox perso ============================== -->
+		<link href="box_bien/css_myinfos.css"  rel="stylesheet" />
+		<script src="box_bien/func_myinfos.js"></script>
+		
 </head>
 	<!--body onload="myFunction()" style="margin:0;"-->	
 	<body>	
@@ -62,16 +61,16 @@
 	<div id="id-zone_previsions_details"></div>
 	<div id="id-zone_previsions_radio">
 		<span style="display:block;width:120px; height:30px; float:left; text-align:center;">Temps: </span>
-		<label class="Cls_pasteur" for="prevision_matin">Matin</label>
+		<label class="cls-pasteur" for="prevision_matin">Matin</label>
 		<input type="radio" name="mode_prevision" value="prevision_matin" id="id-prevision_matin" onclick="jereo_prevision('matin');">&nbsp; &nbsp; &nbsp; 
 		
-		<label  class="Cls_pasteur" for="prevision_jour">Jour</label>
+		<label class="cls-pasteur" for="prevision_jour">Jour</label>
 		<input type="radio" name="mode_prevision" value="prevision_jour" id="id-prevision_jour" checked onclick="jereo_prevision('jour');"> &nbsp; &nbsp; &nbsp;
 		
-		<label  class="Cls_pasteur" for="prevision_soir">Soir</label>
+		<label class="cls-pasteur" for="prevision_soir">Soir</label>
 		<input type="radio" name="mode_prevision" value="prevision_soir" id="id-prevision_soir" onclick="jereo_prevision('soir');">&nbsp; &nbsp; &nbsp;
 		
-		<label  class="Cls_pasteur" for="prevision_nuit">Nuit</label>
+		<label class="cls-pasteur" for="prevision_nuit">Nuit</label>
 		<input type="radio" name="mode_prevision" value="prevision_nuit" id="id-prevision_nuit" onclick="jereo_prevision('nuit');">&nbsp; &nbsp; &nbsp;
 		<button class="btn btn-primary" id="id-bout_prevision_onGoogle">voir</button>
 	</div>
@@ -85,7 +84,7 @@
 		<div id="id-temps_max"></div>
 	</div>
 	<div class="cls-contents">
-		<div id="id_googleMap"></div>
+		<div id="id-googleMap"></div>
 	</div>
 	<div class="cls-footer">
 		<div id="id-spin_carte"></div>
@@ -99,7 +98,7 @@
 
 	
 	<script>
-		
+		var PID_OWM = "181cea89bccd876e12a66892e24ecb69";
 		var temp_min = Array();
 		var temp_max = Array();
 		var temp_avg = Array();
@@ -140,19 +139,20 @@
 		var infowindow_ge_jour = [];
 		var markers_ge_prevision = [];
 		var infowindow_ge_prevision = [];
-		var mapElement = document.getElementById('id_googleMap'); 
+		var mapElement = document.getElementById('id-googleMap'); 
 		
 		//id;region;mdg_loc_code;class_adm;centr_x;centr_y
 		var data_reg = document.getElementById("IdLesInfosPT").value;
 		var split_reg = data_reg.split(';');
 		var nbre_reg = split_reg.length;
 		
-		
+		function test_func(){
+			alert("tonga");
+		}
 		//--get ready
 		$(document).ready(function(){
 			//--call function 
 			infos_back();
-			
 			//---events click
 			$("#id-bout_Jour").click(function(){
 				Hide_Markers(markers_ge_prevision);
@@ -171,33 +171,11 @@
 			});
 			
 			$("#id-bout_ReloadJour").click(function(){
-				msgBoxImagePath = "jquery.msgbox.7.1/images/";
-				$.msgBox({
-				title: "INFORMATION",
-				content: 'Recharger les informations ? <br> OUI pour Supprimer || NON pour Laisser',
-				type: "confirm",
-				buttons: [{ value: "OUI" }, { value: "NON" }],
-				success: function (result) {
-						if (result == "OUI") {
-							reload_owm_jour();		
-						}
-					}
-				});
+				myBox_infos("INFORMATION", "Recharger les informations ?", "ask", "ask", reload_owm_jour);
 			});
 			
 			$("#id-bout_ReloadPrevision").click(function(){
-				msgBoxImagePath = "jquery.msgbox.7.1/images/";
-				$.msgBox({
-				title: "INFORMATION",
-				content: 'Recharger les informations pour la prévision ? <br> OUI pour Supprimer || NON pour Laisser',
-				type: "confirm",
-				buttons: [{ value: "OUI" }, { value: "NON" }],
-				success: function (result) {
-						if (result == "OUI") {
-							reload_owm_prevision();		
-						}
-					}
-				});
+				myBox_infos("INFORMATION", "Recharger les informations pour la prévision ?", "ask", "ask", reload_owm_prevision);
 			});
 			
 			$("#id-bout_prevision_onGoogle").click(function(){

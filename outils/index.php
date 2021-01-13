@@ -1,4 +1,0 @@
-<?php 
-	$adala = "";
-	echo $adala;
- ?>

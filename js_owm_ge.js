@@ -1,3 +1,6 @@
+function blank_infos(){
+	//----
+}
 function initialize()
 {
 	debut_traitement();
@@ -16,7 +19,7 @@ function initialize()
 	map_ge = new google.maps.Map(mapElement, mapOptions);	
 	
 	//certification
-	var hafatra = '<b style="color:rgb(42,84,210);font-size:14px;">Bienvenue RAHOILIJAONA</b>' + '<br>'
+	var hafatra = '<b style="color:rgb(42,84,210);font-size:14px;">RAHOILIJAONA Bienvenue</b>' + '<br>'
 				+'<b style="color:rgb(166,133,33);font-size:12px;">Développeur Informatique et Programmeur en Géomatique </b>' + '<br>'
 				+'<span style="color:rgb(42,84,210);font-size:10px;">Consultant en Informatique' + '<br>'
 				+'101 Antananarivo - Madagascar' + '<br>'
@@ -25,22 +28,17 @@ function initialize()
 				+'</span>';
 	
 	var myInfosAdmin = document.createElement('DIV');
-		  myInfosAdmin.style.cursor = 'pointer';
-		  myInfosAdmin.style.background = "rgb(232,232,232)";
-		  myInfosAdmin.style.height = '18px';
-		  myInfosAdmin.style.width = '150px';
-		  myInfosAdmin.style.bottom = '1px';
-		  myInfosAdmin.style.left = '120px';
-		  myInfosAdmin.innerHTML = 'Développée par : <a href"mailto:henriprincetoky@gmail.com">Bienvenue</a>';
-		  myInfosAdmin.addEventListener('click', function() {
-				msgBoxImagePath = "jquery.msgbox.7.1/images/";
-				$.msgBox({
-					title: "Administrateur",
-					content: hafatra,
-					type: "admin"
-				}); 	
+		 myInfosAdmin.style.cursor = 'pointer';
+		 myInfosAdmin.style.background = "rgb(232,232,232)";
+		 myInfosAdmin.style.height = '18px';
+		 myInfosAdmin.style.width = '150px';
+		 myInfosAdmin.style.bottom = '1px';
+		 myInfosAdmin.style.left = '120px';
+		 myInfosAdmin.innerHTML = 'Développée par : <a href"mailto:henriprincetoky@gmail.com">Bienvenue</a>';
+		 myInfosAdmin.addEventListener('click', function() {
+			myBox_infos("Administrateur", hafatra, "admin", "admin", blank_infos);
 		});
-	 map_ge.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(myInfosAdmin);  
+	 map_ge.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(myInfosAdmin); 
 	 //--check if map loaded
 	 if (!google.maps.event.addListenerOnce(map_ge, 'tilesloaded', load_owm_jour )){
 	 	 alert("Erreur de chargement de fond de carte Google");
@@ -49,14 +47,14 @@ function initialize()
 	
 function pinSymbol(color) 
 {
-  return {
+ return {
 	path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z',
 	fillColor: color,
 	fillOpacity: 1,
 	strokeColor: '#000',
 	strokeWeight: 2,
 	scale: 2
-  };
+ };
 }
 //------------------------------------------------------------show hide markers, infoWindows----------------------------------------//
 function Hide_MarkersClass(tbl_Array, layerName_client) 
