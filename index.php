@@ -35,7 +35,7 @@
 		<script src="btsp/js/bootstrap.js"></script>
 		
 		<link rel="stylesheet" href="css_meteo_2020.css" />
-		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8qQOBguU9m1Jh8uKcnrDqsQUlVVm9SiE&callback=initialize"></script>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_HERE&callback=initialize"></script>
 		<style>
 		.labels {
 			 color: white;
@@ -98,7 +98,7 @@
 
 	
 	<script>
-		var PID_OWM = "181cea89bccd876e12a66892e24ecb69";
+		var PID_OWM = "YOUR_PID_OWM";
 		var temp_min = Array();
 		var temp_max = Array();
 		var temp_avg = Array();
